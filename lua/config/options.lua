@@ -5,9 +5,9 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
@@ -29,3 +29,30 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
+
+-- Neovide Config
+vim.o.guifont = "JetbrainsMono Nerd Font:h13"
+
+vim.g.neovide_padding_top = 0
+vim.g.neovide_padding_bottom = 0
+vim.g.neovide_padding_right = 0
+vim.g.neovide_padding_left = 0
+
+-- I live in the shadows
+vim.g.neovide_floating_shadow = false
+
+vim.g.neovide_scroll_animation_far_lines = 5
+vim.g.neovide_hide_mouse_when_typing = true
+vim.g.neovide_theme = "auto"
+
+-- Smoooooooooth
+vim.g.neovide_refresh_rate = 144
+vim.g.neovide_refresh_rate_idle = 1
+vim.g.neovide_no_idle = false
+
+-- Is this a videogame?
+vim.g.neovide_cursor_antialiasing = true
+
+-- The ricing corner
+vim.g.neovide_cursor_animate_in_insert_mode = true
+vim.g.neovide_cursor_vfx_mode = "pixiedust"
