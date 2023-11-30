@@ -30,29 +30,31 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
--- Neovide Config
-vim.o.guifont = "JetbrainsMono Nerd Font:h13"
+-- Neovide Config only runs when in neovide
+if vim.g.neovide then
+  -- vim.o.guifont = "JetbrainsMono Nerd Font:h13"
 
-vim.g.neovide_padding_top = 0
-vim.g.neovide_padding_bottom = 0
-vim.g.neovide_padding_right = 0
-vim.g.neovide_padding_left = 0
+  vim.g.neovide_padding_top = 15
+  vim.g.neovide_padding_bottom = 0
+  vim.g.neovide_padding_right = 0
+  vim.g.neovide_padding_left = 0
 
--- I live in the shadows
-vim.g.neovide_floating_shadow = false
+  -- I live in the shadows
+  vim.g.neovide_floating_shadow = false
 
-vim.g.neovide_scroll_animation_far_lines = 5
-vim.g.neovide_hide_mouse_when_typing = true
-vim.g.neovide_theme = "auto"
+  vim.g.neovide_scroll_animation_far_lines = 5
+  vim.g.neovide_hide_mouse_when_typing = true
 
--- Smoooooooooth
-vim.g.neovide_refresh_rate = 144
-vim.g.neovide_refresh_rate_idle = 1
-vim.g.neovide_no_idle = false
+  -- Smoooooooooth
+  vim.g.neovide_refresh_rate = 144
+  vim.g.neovide_refresh_rate_idle = 1
+  vim.o.termguicolors = true
+  vim.g.neovide_no_idle = false
 
--- Is this a videogame?
-vim.g.neovide_cursor_antialiasing = true
+  -- Is this a videogame?
+  vim.g.neovide_cursor_antialiasing = true
 
--- The ricing corner
-vim.g.neovide_cursor_animate_in_insert_mode = true
-vim.g.neovide_cursor_vfx_mode = "pixiedust"
+  -- The ricing corner
+  vim.g.neovide_cursor_animate_in_insert_mode = true
+  vim.g.neovide_cursor_vfx_mode = "pixiedust"
+end

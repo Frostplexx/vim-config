@@ -28,7 +28,7 @@ require("lazy").setup({
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
   install = { colorscheme = { "catppuccin" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
     rtp = {
       -- disable some rtp plugins
@@ -66,3 +66,20 @@ require("code_runner").setup({
 
 -- Setup live-server
 require("live-server").setup()
+
+require("catppuccin").setup({
+  integrations = {
+    cmp = true,
+    gitsigns = true,
+    nvimtree = true,
+    treesitter = true,
+    notify = true,
+    mason = true,
+    neotree = true,
+    which_key = true,
+    mini = {
+      enabled = true,
+      indentscope_color = "",
+    },
+  },
+})
