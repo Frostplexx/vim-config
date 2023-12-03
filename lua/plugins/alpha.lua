@@ -16,7 +16,8 @@ return {
 	 ██████  █████████████████████ ████ █████ █████ ████ ██████ 
 
     ]]
-    local fortune = io.popen("fortune"):read("*a") -- Run the fortune command to get a random fortune
+
+    local fortune = io.popen("fortune -s"):read("*a") -- Run the fortune command to get a random fortune
 
     dashboard.section.header.val = vim.split(logo .. fortune .. "\n", "\n")
     -- dashboard.section.header.val = vim.split(logo, "\n")
