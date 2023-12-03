@@ -42,4 +42,14 @@ mv ~/.cache/nvim{,.bak}
 git clone https://github.com/Frostplexx/vim-config.git ~/.config/nvim
 ```
 
+### Set up .ideavimrc
+
+This config also includes my .ideavimrc file. Symlink it to your home folder with the following command:
+
+```bash
+ln -s ~/.config/nvim/.ideavimrc ~/.ideavimrc
+```
+
+and install the IdeaVim plugin in your IDE.
+
 For more information on how to install plugins, see [LazyVim install guide](https://www.lazyvim.org/installation).
