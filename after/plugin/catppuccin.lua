@@ -23,3 +23,20 @@ if vim.g.neovide then
   vim.g.terminal_color_14 = macchiato_palette.pink
   vim.g.terminal_color_15 = macchiato_palette.red
 end
+
+require("catppuccin").setup({
+  integrations = {
+    cmp = true,
+    gitsigns = true,
+    nvimtree = true,
+    treesitter = true,
+    notify = true,
+    mason = true,
+    neotree = true,
+    which_key = true,
+    mini = {
+      enabled = true,
+      indentscope_color = "",
+    },
+  },
+})

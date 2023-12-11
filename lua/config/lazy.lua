@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
   -- stylua: ignore
@@ -42,44 +43,6 @@ require("lazy").setup({
         "tutor",
         "zipPlugin",
       },
-    },
-  },
-})
-
--- Setup code_runner
-require("code_runner").setup({
-  filetype = {
-    java = {
-      "cd $dir &&",
-      "javac $fileName &&",
-      "java $fileNameWithoutExt",
-    },
-    python = "python3 -u",
-    typescript = "deno run",
-    rust = {
-      "cd $dir &&",
-      "rustc $fileName &&",
-      "$dir/$fileNameWithoutExt",
-    },
-  },
-})
-
--- Setup live-server
-require("live-server").setup()
-
-require("catppuccin").setup({
-  integrations = {
-    cmp = true,
-    gitsigns = true,
-    nvimtree = true,
-    treesitter = true,
-    notify = true,
-    mason = true,
-    neotree = true,
-    which_key = true,
-    mini = {
-      enabled = true,
-      indentscope_color = "",
     },
   },
 })

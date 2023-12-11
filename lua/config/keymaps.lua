@@ -28,6 +28,9 @@ vim.keymap.set("n", "<leader>4", function()
   ui.nav_file(4)
 end, { desc = "Go to 4. marked file" })
 
+-- no neck pick
+vim.keymap.set("n", "<leader>wp", vim.cmd.NoNeckPain, { desc = "Center Code" })
+
 -- Undotree
 vim.keymap.set("n", "<leader>cu", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
 
