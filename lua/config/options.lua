@@ -5,6 +5,9 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+-- Set the command-line window height to 2
+vim.opt.cmdheight = 1
+
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
