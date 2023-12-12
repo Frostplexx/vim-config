@@ -33,6 +33,9 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+-- open compiled tex files in skim
+vim.g.vimtex_view_method = "skim"
+
 -- Neovide Config only runs when in neovide
 if vim.g.neovide then
   -- vim.o.guifont = "JetbrainsMono Nerd Font:h13"

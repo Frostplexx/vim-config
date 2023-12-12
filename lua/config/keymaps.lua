@@ -5,8 +5,28 @@
 
 -- map tab to switch buffers and shift tab to switch buffers in reverse
 
-vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Go to next buffer", remap = true, silent = true })
-vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { desc = "Go to previous buffer", remap = true, silent = true })
+-- vim.keymap.set("n", "<Tab>", ":Telescope buffers<cr>", { desc = "Go to next buffer", remap = true, silent = true })
+-- vim.keymap.set(
+--   "n",
+--   "<S-Tab>",
+--   ":Telescrope buffers<cr>",
+--   { desc = "Go to previous buffer", remap = true, silent = true }
+-- )
+
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<Tab>", function()
+  builtin.buffers({
+    sort_mru = true,
+    ignore_current_buffer = true,
+  })
+end, { desc = "Go to next buffer", remap = true, silent = true })
+
+vim.keymap.set("n", "<S-Tab>", function()
+  builtin.buffers({
+    sort_mru = true,
+    ignore_current_buffer = true,
+  })
+end, { desc = "Go to next buffer", remap = true, silent = true })
 
 -- harpoon
 local mark = require("harpoon.mark")
@@ -28,7 +48,10 @@ vim.keymap.set("n", "<leader>4", function()
   ui.nav_file(4)
 end, { desc = "Go to 4. marked file" })
 
--- no neck pick
+-- Explorer
+-- vim.keymap.set("n", "<leader>fe", vim.cmd.Explore, { desc = "Open Explore" })
+
+-- no neck pain
 vim.keymap.set("n", "<leader>wp", vim.cmd.NoNeckPain, { desc = "Center Code" })
 
 -- Undotree

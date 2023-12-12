@@ -10,26 +10,6 @@ require("battery").setup({
   vertical_icons = false, -- When true icons are vertical, otherwise shows horizontal battery icon
 })
 
-local colors = require("catppuccin.palettes").get_palette("macchiato")
-
--- local bubbles_theme = {
---   normal = {
---     a = { fg = colors.base, bg = colors.blue },
---     b = { fg = colors.text, bg = colors.overlay0 },
---     c = { fg = colors.base, bg = colors.base },
---   },
---
---   insert = { a = { fg = colors.base, bg = colors.blue } },
---   visual = { a = { fg = colors.base, bg = colors.green } },
---   replace = { a = { fg = colors.base, bg = colors.red } },
---
---   inactive = {
---     a = { fg = colors.text, bg = colors.base },
---     b = { fg = colors.text, bg = colors.base },
---     c = { fg = colors.base, bg = colors.base },
---   },
--- }
---
 require("lualine").setup({
   options = {
     theme = "auto",
