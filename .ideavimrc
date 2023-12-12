@@ -56,6 +56,10 @@ vnoremap N Nzz
 
 nnoremap <leader>d F1
 
+nnoremap <leader><leader> <l-S><l-S>
+
+map <leader><leader> <Action>(SearchEverywhere)
+
 nnoremap <leader>w <ctrl-w>
 
 " clear the search buffer when hitting return
