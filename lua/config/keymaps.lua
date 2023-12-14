@@ -5,14 +5,6 @@
 
 -- map tab to switch buffers and shift tab to switch buffers in reverse
 
--- vim.keymap.set("n", "<Tab>", ":Telescope buffers<cr>", { desc = "Go to next buffer", remap = true, silent = true })
--- vim.keymap.set(
---   "n",
---   "<S-Tab>",
---   ":Telescrope buffers<cr>",
---   { desc = "Go to previous buffer", remap = true, silent = true }
--- )
-
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<Tab>", function()
   builtin.buffers({
@@ -48,8 +40,25 @@ vim.keymap.set("n", "<leader>4", function()
   ui.nav_file(4)
 end, { desc = "Go to 4. marked file" })
 
--- Explorer
--- vim.keymap.set("n", "<leader>fe", vim.cmd.Explore, { desc = "Open Explore" })
+-- Toggle Copilot
+
+vim.keymap.set("n", "<leader>cp", function()
+  -- get copilot status
+  if vim.g.copilot then
+    -- if copilot is on, turn it off
+    vim.g.copilot = false
+    vim.cmd("Copilot disable")
+    vim.cmd("echo 'Copilot disabled'")
+  else
+    -- if copilot is off, turn it on
+    vim.g.copilot = true
+    vim.cmd("Copilot enable")
+    vim.cmd("echo 'Copilot enabled'")
+  end
+end, { desc = "Toggle Copilot" })
+
+-- Explorer to comand o
+vim.keymap.set("n", "<M-o>", vim.cmd.Explore, { desc = "Open Explore" })
 
 -- no neck pain
 vim.keymap.set("n", "<leader>wp", vim.cmd.NoNeckPain, { desc = "Center Code" })

@@ -46,3 +46,7 @@ require("lazy").setup({
     },
   },
 })
+
+-- disable copilot
+vim.g.copilot = false
+vim.cmd("Copilot disable")
