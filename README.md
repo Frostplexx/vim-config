@@ -9,7 +9,7 @@ It's based on [LazyVim](https://www.lazyvim.org/).
 
 - NeoVim
 - Git
-- JetbrainsMono Nerd Font
+- JetbrainsMono Nerd Font (or any other NerdFont)
 - lazygit
 - ripgrep
 - fd (find files)
@@ -30,7 +30,7 @@ brew install --cask font-jetbrains-mono-nerd-font
 to install the font on MacOS and `brew install neovim git lazygit ripgrep fd fortune xcodegen swiftlint swiftformat` to install all of these on MacOS.
 For xcode-build-server see: https://github.com/SolaWing/xcode-build-server and XCode can be obtained from the AppStore
 
-### Backup your old config
+### Backup your old config (Optional)
 
 ```bash
 # required
@@ -48,7 +48,7 @@ mv ~/.cache/nvim{,.bak}
 git clone https://github.com/Frostplexx/vim-config.git ~/.config/nvim
 ```
 
-### Set up .ideavimrc
+### Set up .ideavimrc (Optional)
 
 This config also includes my .ideavimrc file. Symlink it to your home folder with the following command:
 
