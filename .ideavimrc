@@ -40,7 +40,7 @@ let NERDTreeDirArrows = 1
 " use system clipboard
 set clipboard=unnamedplus
 
-" wrap to new lien when pressing l,h,...
+" wrap to new line when pressing l,h,...
 set whichwrap=b,s,<,>,h,l,[,]
 
 " register leader
@@ -85,7 +85,7 @@ nnoremap K :m-<cr>
 
 " comment out
 :map gc <Action>(CommentByLineComment)
-:map bb <Action>(CommentByBlockComment)set clipboard+=ideaputset clipboard+=ideaput
+:map <leader>bb <Action>(CommentByBlockComment)set clipboard+=ideaputset clipboard+=ideaput
 
 " navigation
 :map <leader>gg <Action>(GotoClass)

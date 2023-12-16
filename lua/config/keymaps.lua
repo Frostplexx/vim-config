@@ -56,6 +56,14 @@ vim.keymap.set("n", "<leader>cp", function()
   end
 end, { desc = "Toggle Copilot" })
 
+-- Builds XCode Project
+vim.keymap.set("n", "<leader>cb", function()
+  -- run the xcodegen command
+  vim.cmd("echo 'Building XCode Project'")
+  os.execute("xcodegen generate")
+  vim.cmd("XcodebuildBuildRun")
+end, { desc = "Builds XCode Project" })
+
 -- Explorer to comand o
 vim.keymap.set("n", "<C-o>", vim.cmd.Explore, { desc = "Open Explore" })
 
