@@ -41,7 +41,6 @@ vim.keymap.set("n", "<leader>4", function()
 end, { desc = "Go to 4. marked file" })
 
 -- Toggle Copilot
-
 vim.keymap.set("n", "<leader>cp", function()
   -- get copilot status
   if vim.g.copilot then
@@ -58,7 +57,7 @@ vim.keymap.set("n", "<leader>cp", function()
 end, { desc = "Toggle Copilot" })
 
 -- Explorer to comand o
-vim.keymap.set("n", "<M-o>", vim.cmd.Explore, { desc = "Open Explore" })
+vim.keymap.set("n", "<C-o>", vim.cmd.Explore, { desc = "Open Explore" })
 
 -- no neck pain
 vim.keymap.set("n", "<leader>wp", vim.cmd.NoNeckPain, { desc = "Center Code" })
