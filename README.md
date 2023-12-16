@@ -14,6 +14,11 @@ It's based on [LazyVim](https://www.lazyvim.org/).
 - ripgrep
 - fd (find files)
 - fortune
+- xcode-build-server
+- XCode
+- xcodegen
+- swiftlint
+- swiftformat
 
 You can run
 
@@ -22,7 +27,8 @@ brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 ```
 
-to install the font on MacOS and `brew install neovim git lazygit ripgrep fd fortune` to install all of these on MacOS.
+to install the font on MacOS and `brew install neovim git lazygit ripgrep fd fortune xcodegen swiftlint swiftformat` to install all of these on MacOS.
+For xcode-build-server see: https://github.com/SolaWing/xcode-build-server and XCode can be obtained from the AppStore
 
 ### Backup your old config
 
