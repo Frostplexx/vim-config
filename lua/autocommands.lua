@@ -1,0 +1,13 @@
+-- [[ Autocommands ]]
+
+-- -- Open Project selector on vim enter
+-- vim.api.nvim_command([[
+--   autocmd VimEnter * lua open_folder_browser()
+-- ]])
+--
+-- -- Define the function globally
+-- _G.open_folder_browser = function()
+--     if vim.fn.expand("<afile>") == "" then
+--         vim.cmd('Telescope file_browser path=~/Documents/Development/')
+--     end
+-- end

@@ -1,9 +1,5 @@
 -- [[ Keymaps that (re)map vim functions ]]
-
--- [[ Telescope ]]
--- map tab to switch buffers and shift tab to switch buffers in reverse
-
--- Toggle Copilot
+vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>cp", function()
     -- get copilot status
     if vim.g.copilot then
@@ -19,7 +15,7 @@ vim.keymap.set("n", "<leader>cp", function()
     end
 end, { desc = "Toggle Copilot" })
 
--- Builds XCode Project
+-- Builds XCode
 vim.keymap.set("n", "<leader>cb", function()
     -- run the xcodegen command
     vim.cmd("echo 'Building XCode Project'")
@@ -28,7 +24,7 @@ vim.keymap.set("n", "<leader>cb", function()
 end, { desc = "Builds XCode Project" })
 
 -- Explorer to comand o
-vim.keymap.set("n", "<C-o>", vim.cmd.Explore, { desc = "Open Explore" })
+vim.keymap.set("n", "<C-o>", ":Telescope file_browser path=~/Documents/Development/ <cr>", { desc = "Open Explore" })
 
 -- no neck pain
 vim.keymap.set("n", "<leader>wp", vim.cmd.NoNeckPain, { desc = "Center Code" })
@@ -40,8 +36,8 @@ vim.keymap.set("n", "<leader>bT", ":ToggleTerm direction=float <CR>", { desc = "
 vim.keymap.set("n", "<leader>bt", ":ToggleTerm direction=horizontal <CR>", { desc = "Open horizontal terminal split" })
 
 -- Rearrange visually selected lines in normal mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 
 -- Join lines in normal mode after moving to the end of the line
 vim.keymap.set("n", "J", "mzJ`z")

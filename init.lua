@@ -1,4 +1,5 @@
 -- [[ init file ]]
+require("keymap")
 
 -- [[ lazy.nvim plugin manager ]]
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -12,8 +13,8 @@ if not vim.loop.fs_stat(lazypath) then
         lazypath,
     })
 end
-vim.opt.rtp:prepend(lazypath)
 
+vim.opt.rtp:prepend(lazypath)
 -- initalize lazy.nvim
 require("lazy").setup({
     spec = {
@@ -41,7 +42,3 @@ require("lazy").setup({
         },
     },
 })
-
--- disable copilot
--- vim.g.copilot = false
--- vim.cmd("Copilot disable")

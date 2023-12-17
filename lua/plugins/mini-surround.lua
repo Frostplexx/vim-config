@@ -1,5 +1,6 @@
 return {
     'echasnovski/mini.surround',
+    event = "BufRead",
     lazy = false,
     version = '*',
     config = function()

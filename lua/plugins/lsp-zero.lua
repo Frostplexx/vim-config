@@ -2,6 +2,7 @@ return {
     "VonHeikemen/lsp-zero.nvim",
     branch = 'v3.x',
     lazy = false,
+    event = "VeryLazy",
     dependencies = {
         { 'neovim/nvim-lspconfig' },
         { 'hrsh7th/cmp-nvim-lsp' },
@@ -53,7 +54,14 @@ return {
             },
         })
 
-        -- [[ Set up Keymaps ]]
+
+        -- [[ Set up LSP ]]
+        local lspconfig = require('lspconfig')
+
+        -- sourcekit-lsp
+        lspconfig.sourcekit.setup {}
+
+        -- [[ Set up autocomplete keymaps ]]
         local cmp = require('cmp')
         local cmp_action = require('lsp-zero').cmp_action()
 

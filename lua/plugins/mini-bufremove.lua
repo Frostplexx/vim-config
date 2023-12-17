@@ -1,5 +1,6 @@
 return {
     "echasnovski/mini.bufremove",
+    event = "VeryLazy",
     lazy = false,
     config = function()
         require('mini.bufremove').setup()

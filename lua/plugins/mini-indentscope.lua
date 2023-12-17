@@ -1,5 +1,6 @@
 return {
     'echasnovski/mini.indentscope',
+    event = "BufRead",
     version = false,
     lazy = false,
     config = function()
@@ -8,6 +9,7 @@ return {
             draw = {
                 -- Delay (in ms) between event and start of drawing scope indicator
                 delay = 0,
+                animation = require('mini.indentscope').gen_animation.none()
             },
 
             -- Module mappings. Use `''` (empty string) to disable one.

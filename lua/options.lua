@@ -4,6 +4,7 @@ vim.cmd.colorscheme "catppuccin-macchiato"
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.api.nvim_set_option("clipboard", "unnamed")
 -- Set the command-line window height to 2
 vim.opt.cmdheight = 1
 

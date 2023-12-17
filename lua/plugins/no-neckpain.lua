@@ -1,5 +1,6 @@
 return {
     "shortcuts/no-neck-pain.nvim",
+    event = "VeryLazy",
     lazy = false,
     opts = {
         width = 150,

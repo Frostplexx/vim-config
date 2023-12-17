@@ -1,6 +1,7 @@
 return {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    event = "VeryLazy",
     config = function()
         require("telescope").setup {
             extensions = {
@@ -22,6 +23,6 @@ return {
         require("telescope").load_extension "file_browser"
     end,
     keys = {
-        { "<space>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", desc = "File Browser", noremap = true, silent = true },
+        { "<leader>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", desc = "File Browser", noremap = true, silent = true },
     }
 }

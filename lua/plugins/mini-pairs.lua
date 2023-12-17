@@ -1,5 +1,6 @@
 return {
     'echasnovski/mini.pairs',
+    event = "BufRead",
     version = false,
     lazy = false,
     config = function()

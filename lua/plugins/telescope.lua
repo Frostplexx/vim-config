@@ -3,11 +3,12 @@ return {
     'nvim-telescope/telescope.nvim',
     lazy = false,
     tag = '0.1.5',
+    event = "VeryLazy",
     dependencies = {
         'nvim-lua/plenary.nvim'
     },
     keys = {
-        { "<Space><Space>", ":Telescope find_files<cr>", desc = "Find Files", remap = true, silent = true },
+        { "<leader><space>", ":Telescope find_files<cr>", desc = "Find Files", remap = true, silent = true },
         { "<Tab>",
             function()
                 local builtin = require("telescope.builtin")
