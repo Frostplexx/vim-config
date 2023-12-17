@@ -1,19 +1,19 @@
 -- [[ Keymaps that (re)map vim functions ]]
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>cp", function()
-    -- get copilot status
-    if vim.g.copilot then
-        -- if copilot is on, turn it off
-        vim.g.copilot = false
-        vim.cmd("Copilot disable")
-        vim.cmd("echo 'Copilot disabled'")
-    else
-        -- if copilot is off, turn it on
-        vim.g.copilot = true
-        vim.cmd("Copilot enable")
-        vim.cmd("echo 'Copilot enabled'")
-    end
-end, { desc = "Toggle Copilot" })
+-- vim.keymap.set("n", "<leader>cp", function()
+--     -- get copilot status
+--     if vim.g.copilot then
+--         -- if copilot is on, turn it off
+--         vim.g.copilot = false
+--         vim.cmd("Copilot disable")
+--         vim.cmd("echo 'Copilot disabled'")
+--     else
+--         -- if copilot is off, turn it on
+--         vim.g.copilot = true
+--         vim.cmd("Copilot enable")
+--         vim.cmd("echo 'Copilot enabled'")
+--     end
+-- end, { desc = "Toggle Copilot" })
 
 -- Builds XCode
 vim.keymap.set("n", "<leader>cb", function()

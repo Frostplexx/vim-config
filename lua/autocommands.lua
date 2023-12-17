@@ -1,13 +1,22 @@
 -- [[ Autocommands ]]
+---@param group string
+---@vararg { [1]: string|string[], [2]: vim.api.keyset.create_autocmd }
+---@return nil
+local function au(group, ...)
+    local groupid = vim.api.nvim_create_augroup(group, {})
+    for _, autocmd in ipairs({ ... }) do
+        autocmd[2].group = groupid
+        vim.api.nvim_create_autocmd(unpack(autocmd))
+    end
+end
 
--- -- Open Project selector on vim enter
--- vim.api.nvim_command([[
---   autocmd VimEnter * lua open_folder_browser()
--- ]])
---
--- -- Define the function globally
--- _G.open_folder_browser = function()
---     if vim.fn.expand("<afile>") == "" then
---         vim.cmd('Telescope file_browser path=~/Documents/Development/')
---     end
--- end
+
+au('YankHighlight', {
+    'TextYankPost',
+    {
+        desc = 'Highlight the selection on yank.',
+        callback = function()
+            vim.highlight.on_yank({ higroup = 'Visual', timeout = 200 })
+        end,
+    },
+})
