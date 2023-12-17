@@ -8,11 +8,10 @@ return {
             formatters_by_ft = {
                 swift = { "swiftformat_ext" },
             },
-            -- format_on_save = {
-            -- 	timeout_ms = 500,
-            -- 	lsp_fallback = true,
-            -- },
-            format_on_save = nil,
+            format_on_save = {
+                timeout_ms = 500,
+                lsp_fallback = true,
+            },
             log_level = vim.log.levels.ERROR,
             formatters = {
                 swiftformat_ext = {
