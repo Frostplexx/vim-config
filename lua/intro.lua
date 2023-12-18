@@ -1,3 +1,4 @@
+-- Source: https://github.com/Bekaboo/nvim/blob/master/plugin/intro.lua
 -- Disable default intro message
 vim.opt.shortmess:append('I')
 
@@ -23,11 +24,11 @@ local lines = {
     {
         chunks = {
             {
-                text = 'Neovim :: M Λ C R O',
+                text = 'NVim :: Λurora',
                 hl = 'Normal',
             },
             {
-                text = ' - Editing made simple',
+                text = ' • Minimalism, Maximized',
                 hl = 'NonText',
             },
         },
@@ -35,7 +36,7 @@ local lines = {
     {
         chunks = {
             {
-                text = 'Copyright (c) 2023 - M Λ C R O developers',
+                text = 'Profanity is the one language all programmers know best',
                 hl = 'NonText',
             },
         },
@@ -150,4 +151,3 @@ vim.api.nvim_create_autocmd({
         return true
     end,
 })
-
