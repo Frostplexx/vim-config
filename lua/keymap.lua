@@ -15,6 +15,9 @@ vim.g.mapleader = " "
 --     end
 -- end, { desc = "Toggle Copilot" })
 
+-- remap Ctrl-W to <leader>w
+vim.keymap.set("n", "<leader>w", "<C-W>", { desc = "Windows", noremap = false })
+
 -- Builds XCode
 vim.keymap.set("n", "<leader>cb", function()
     -- run the xcodegen command

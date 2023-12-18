@@ -60,11 +60,10 @@ return {
         { "<leader>di", "<cmd>lua require'dap'.step_into()<CR>",         desc = "Step Into" },
         { "<leader>do", "<cmd>lua require'dap'.step_out()<CR>",          desc = "Step Out" },
         { "<leader>dd", "<cmd>lua require'dap'.down()<CR>",              desc = "Down" },
-        { "<leader>ds", "<cmd>lua require'dap'.stop()<CR>",              desc = "Stop" },
+        { "<leader>ds", "<cmd>lua require'dap'.close()<CR>",             desc = "Stop" },
         { "<leader>dt", "<cmd>lua require'dapui'.toggle()<CR>",          desc = "Toggle Debug UI" },
         { "<leader>dv", "<cmd>lua require'dapui'.variables()<CR>",       desc = "Variables" },
         { "<leader>di", "<cmd>lua require'dapui'.inspector()<CR>",       desc = "Inspector" },
         { "<leader>dk", "<cmd>lua require'dapui'.hover()<CR>",           desc = "Hover" },
-        { "<leader>dc", "<cmd>lua require'dapui'.close()<CR>",           desc = "Close" },
     }
 }
