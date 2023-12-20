@@ -19,8 +19,8 @@ return {
             vim.g.terminal_color_5 = macchiato_palette.pink
             vim.g.terminal_color_6 = macchiato_palette.teal
             vim.g.terminal_color_7 = macchiato_palette.subtext1
-            vim.g.terminal_color_8 = macchiato_palette.yellow -- idk
-            vim.g.terminal_color_9 = macchiato_palette.yellow -- idk
+            vim.g.terminal_color_8 = macchiato_palette.yellow  -- idk
+            vim.g.terminal_color_9 = macchiato_palette.yellow  -- idk
             vim.g.terminal_color_10 = macchiato_palette.yellow -- idk
             vim.g.terminal_color_11 = macchiato_palette.yellow -- idk
             vim.g.terminal_color_12 = macchiato_palette.yellow -- idk
