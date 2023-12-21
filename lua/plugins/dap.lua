@@ -1,7 +1,6 @@
 return {
     "rcarriga/nvim-dap-ui",
     lazy = true,
-    event = "BufRead",
     dependencies = {
         'mfussenegger/nvim-dap',
         'theHamsta/nvim-dap-virtual-text',
@@ -30,7 +29,7 @@ return {
             executable = {
                 -- set path to the downloaded codelldb
                 -- sample path: "/Users/YOU/Downloads/codelldb-aarch64-darwin/extension/adapter/codelldb"
-                command = "/Users/daniel/.config/nvim/codelldb-aarch64-darwin/extension/adapter/codelldb",
+                command = "/Users/daniel/Documents/nvimExtras/codelldb/extension/adapter/codelldb",
                 args = {
                     "--port",
                     "13000",

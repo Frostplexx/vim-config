@@ -1,7 +1,6 @@
 return {
     "anuvyklack/windows.nvim",
-    lazy = false,
-    event = "BufWinEnter",
+    lazy = true,
     config = function()
         require('windows').setup()
     end,

@@ -1,6 +1,6 @@
 return {
     "ThePrimeagen/harpoon",
-    event = "VeryLazy",
+    lazy = true,
     keys = {
     },
     dependencies = {

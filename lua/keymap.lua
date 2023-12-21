@@ -26,8 +26,6 @@ vim.keymap.set("n", "<leader>cb", function()
     vim.cmd("XcodebuildBuildRun")
 end, { desc = "Builds XCode Project" })
 
--- Explorer to comand o
-vim.keymap.set("n", "<C-o>", ":Telescope file_browser path=~/Documents/Development/ <cr>", { desc = "Open Explore" })
 
 -- no neck pain
 vim.keymap.set("n", "<leader>wp", vim.cmd.NoNeckPain, { desc = "Center Code" })

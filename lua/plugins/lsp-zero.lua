@@ -1,15 +1,15 @@
 return {
     "VonHeikemen/lsp-zero.nvim",
     branch = 'v3.x',
-    lazy = false,
-    event = "VeryLazy",
+    lazy = true,
+    event = "BufRead",
     dependencies = {
-        { 'neovim/nvim-lspconfig' },
-        { 'hrsh7th/cmp-nvim-lsp' },
-        { 'hrsh7th/nvim-cmp' },
-        { 'L3MON4D3/LuaSnip' },
-        { "williamboman/mason.nvim" },
-        { "williamboman/mason-lspconfig.nvim" }
+        { 'neovim/nvim-lspconfig',             lazy = true },
+        { 'hrsh7th/cmp-nvim-lsp',              lazy = true },
+        { 'hrsh7th/nvim-cmp',                  lazy = true },
+        { 'L3MON4D3/LuaSnip',                  lazy = true },
+        { "williamboman/mason.nvim",           lazy = true },
+        { "williamboman/mason-lspconfig.nvim", lazy = true }
     },
     config = function()
         -- Auto formattting helper function
@@ -31,20 +31,22 @@ return {
         -- [[ Set up LSP-Zero ]]
         local lsp_zero = require('lsp-zero')
         lsp_zero.preset('recommended')
-        lsp_zero.on_attach(function(client, bufnr)
+        lsp_zero.on_attach(function(_, bufnr)
             lsp_zero.default_keymaps({ buffer = bufnr })
             lsp_format_on_save(bufnr)
 
-            -- "Auto No Neck Pain"
-            -- turn on NoNeckPain if the window size is too big
-            local width = vim.fn.winwidth(0)
-            -- Run NoNeckPain command if screen is larger than 27 inches
-            if width > 300 and auto_neckpain then
-                vim.cmd("NoNeckPain")
-            end
-
             -- Keybindings
             vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr })
+            vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+            vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+            vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+            vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+            vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+            vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+            vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+            vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+            vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+            vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
         end)
         require('mason').setup({})
         require('mason-lspconfig').setup({

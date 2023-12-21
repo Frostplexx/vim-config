@@ -1,8 +1,8 @@
 return {
     'echasnovski/mini.nvim',
     version = false,
-    lazy = false,
-    event = { 'BufRead' },
+    event = "BufEnter",
+    lazy = true,
     config = function()
         -- [[ Mini Indetenscope ]]
         require('mini.indentscope').setup({
