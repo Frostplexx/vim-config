@@ -84,6 +84,7 @@ return {
                 lualine_y = {},
                 lualine_z = { "location" },
             },
+            winbar = {},
             tabline = {},
             extensions = { "neo-tree", "lazy" },
         })

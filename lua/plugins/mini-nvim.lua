@@ -112,6 +112,7 @@ return {
 
         -- [[ Mini Cursorword ]]
         require('mini.cursorword').setup()
+
         local miniclue = require('mini.clue')
         miniclue.setup({
             triggers = {

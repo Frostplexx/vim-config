@@ -9,6 +9,7 @@ return {
     },
     keys = {
         { "<leader><space>", ":Telescope find_files<cr>", desc = "Find Files", remap = true, silent = true },
+        { "<leader>fg",      ":Telescope live_grep<cr>",  desc = "Live Grep",  silent = true },
         { "<Tab>",
             function()
                 local builtin = require("telescope.builtin")

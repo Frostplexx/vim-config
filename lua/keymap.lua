@@ -1,5 +1,15 @@
 -- [[ Keymaps that (re)map vim functions ]]
 vim.g.mapleader = " "
+
+-- gf passthrough for obsidian
+vim.keymap.set("n", "gf", function()
+    if require("obsidian").util.cursor_on_markdown_link() then
+        return "<cmd>ObsidianFollowLink<CR>"
+    else
+        return "gf"
+    end
+end, { noremap = false, expr = true })
+
 -- vim.keymap.set("n", "<leader>cp", function()
 --     -- get copilot status
 --     if vim.g.copilot then
@@ -26,6 +36,7 @@ vim.keymap.set("n", "<leader>cb", function()
     vim.cmd("XcodebuildBuildRun")
 end, { desc = "Builds XCode Project" })
 
+vim.keymap.set("n", "<leader>po", ":Explore ~/Documents/Development/ <CR>", { desc = "Open Development Folder" })
 
 -- no neck pain
 vim.keymap.set("n", "<leader>wp", vim.cmd.NoNeckPain, { desc = "Center Code" })

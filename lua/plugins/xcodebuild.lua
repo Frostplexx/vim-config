@@ -1,6 +1,7 @@
 return {
     "wojciech-kulik/xcodebuild.nvim",
     lazy = true,
+    event = "BufRead",
     dependencies = {
         "nvim-telescope/telescope.nvim",
         "MunifTanjim/nui.nvim",

@@ -1,12 +1,14 @@
 -- [[ Vim options ]]
 
+vim.g.cmdheight = 0
 vim.cmd.colorscheme "catppuccin-macchiato"
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.opt.autochdir = true
+
 vim.api.nvim_set_option("clipboard", "unnamed")
--- Set the command-line window height to 2
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -39,8 +41,7 @@ vim.g.vimtex_view_method = "skim"
 -- [[ Neovide Config ]]
 -- only runs when in neovide
 if vim.g.neovide then
-    -- vim.o.guifont = "JetbrainsMono Nerd Font:h13"
-
+    vim.o.guifont = "JetbrainsMono Nerd Font:h13"
     vim.g.neovide_padding_top = 15
     vim.g.neovide_padding_bottom = 0
     vim.g.neovide_padding_right = 0
