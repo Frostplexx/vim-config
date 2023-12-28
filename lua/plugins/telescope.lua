@@ -8,8 +8,20 @@ return {
         'nvim-lua/plenary.nvim'
     },
     keys = {
-        { "<leader><space>", ":Telescope find_files<cr>", desc = "Find Files", remap = true, silent = true },
-        { "<leader>fg",      ":Telescope live_grep<cr>",  desc = "Live Grep",  silent = true },
+        {
+            "<leader><space>",
+            function()
+                require("telescope.builtin").find_files({
+                    cwd = vim.loop.cwd(),
+                })
+            end,
+            desc = "Find Files",
+            remap = true,
+            silent = true
+        },
+        { "<leader>fg", ":Telescope live_grep<cr>",           desc = "Live Grep",      silent = true },
+        { "<leader>fh", ":Telescope help_tags",               desc = "Help Tags",      silent = true },
+        { "<leader>fc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
         { "<Tab>",
             function()
                 local builtin = require("telescope.builtin")

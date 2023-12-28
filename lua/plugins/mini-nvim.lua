@@ -68,8 +68,7 @@ return {
                 -- Use `''` (empty string) to not create one.
                 mappings = {
                     close       = 'q',
-                    go_in       = 'l',
-                    go_in_plus  = 'L',
+                    go_in_plus  = 'l',
                     go_out      = 'h',
                     go_out_plus = 'H',
                     reset       = '<BS>',

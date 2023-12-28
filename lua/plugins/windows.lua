@@ -1,13 +1,14 @@
 return {
     "anuvyklack/windows.nvim",
     lazy = true,
+    event = "BufWinEnter",
     config = function()
         require('windows').setup()
     end,
     dependencies = {
         "anuvyklack/middleclass"
     },
-    keymaps = {
-        { "<leader>wm", vim.cmd.WindowsMaximise, desc = "Maximise Window", silent = true }
+    keys = {
+        { "<leader>wm", ":WindowsMaximize<cr>", desc = "Maximise Window", silent = true }
     },
 }

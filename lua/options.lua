@@ -1,5 +1,6 @@
 -- [[ Vim options ]]
 
+vim.g.shortmess = T
 vim.g.cmdheight = 0
 vim.cmd.colorscheme "catppuccin-macchiato"
 vim.opt.nu = true
