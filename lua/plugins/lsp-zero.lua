@@ -4,12 +4,23 @@ return {
     lazy = true,
     event = "BufRead",
     dependencies = {
-        { 'neovim/nvim-lspconfig',             lazy = true },
-        { 'hrsh7th/cmp-nvim-lsp',              lazy = true },
-        { 'hrsh7th/nvim-cmp',                  lazy = true },
-        { 'L3MON4D3/LuaSnip',                  lazy = true },
-        { "williamboman/mason.nvim",           lazy = true },
-        { "williamboman/mason-lspconfig.nvim", lazy = true }
+        { 'neovim/nvim-lspconfig',             lazy = false }, -- LSP client
+        {
+            'hrsh7th/nvim-cmp',                                -- Autocompletion
+            lazy = false,
+            dependencies = {
+
+                { 'saadparwaiz1/cmp_luasnip' }, -- Support for LuaSnip
+                { 'hrsh7th/cmp-nvim-lsp' },     --  Support for LSP
+            }
+        },
+        {
+            'L3MON4D3/LuaSnip',
+            lazy = false,
+            dependencies = { "rafamadriz/friendly-snippets", lazy = false } -- Collection of snippets
+        },                                                                  -- Snippet engine
+        { "williamboman/mason.nvim",           lazy = true },               -- Install LSP servers
+        { "williamboman/mason-lspconfig.nvim", lazy = true },               -- connect mason to lspconfig
     },
     config = function()
         -- Auto formattting helper function
@@ -21,7 +32,7 @@ return {
                 buffer = bufnr,
                 callback = function()
                     vim.lsp.buf.format()
-                    filter = function(client)
+                    Filter = function(client)
                         return client.name == "null-ls"
                     end
                 end,
@@ -36,6 +47,7 @@ return {
             lsp_format_on_save(bufnr)
 
             -- Keybindings
+            local opts = {}
             vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr })
             vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
             vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -47,6 +59,11 @@ return {
             vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
             vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
             vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+
+            -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
         end)
         require('mason').setup({})
         require('mason-lspconfig').setup({
@@ -56,18 +73,35 @@ return {
             },
         })
 
-
         -- [[ Set up LSP ]]
         local lspconfig = require('lspconfig')
 
         -- sourcekit-lsp
         lspconfig.sourcekit.setup {}
 
-        -- [[ Set up autocomplete keymaps ]]
+        -- sumneko_lua
+        lspconfig.lua_ls.setup {
+            -- ... other configs
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { 'vim' }
+                    }
+                }
+            }
+        }
+
+        -- [[ Set up Autocomplete ]]
+        require('luasnip.loaders.from_vscode').lazy_load()
         local cmp = require('cmp')
         local cmp_action = require('lsp-zero').cmp_action()
 
         cmp.setup({
+            sources = {
+                { name = 'nvim_lsp' },
+                { name = 'luasnip' },
+                { name = 'path' }
+            },
             mapping = cmp.mapping.preset.insert({
                 -- `Enter` key to confirm completion
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
@@ -82,7 +116,7 @@ return {
                 -- Scroll up and down in the completion documentation
                 ['<C-u>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-d>'] = cmp.mapping.scroll_docs(4),
-            })
+            }),
         })
     end
 }

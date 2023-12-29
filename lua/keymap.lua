@@ -1,5 +1,6 @@
 -- [[ Keymaps that (re)map vim functions ]]
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- vim.keymap.set("n", "<leader>cp", function()
 --     -- get copilot status
@@ -72,9 +73,6 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- Disable Ex mode when pressing Q in normal mode
 vim.keymap.set("n", "Q", "<nop>")
-
--- Open a new tmux window running 'tmux-sessionizer' in normal mode
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- Format the current buffer using LSP (Language Server Protocol)
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)

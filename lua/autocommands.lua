@@ -1,7 +1,4 @@
 -- [[ Autocommands ]]
----@param group string
----@vararg { [1]: string|string[], [2]: vim.api.keyset.create_autocmd }
----@return nil
 local function au(group, ...)
     local groupid = vim.api.nvim_create_augroup(group, {})
     for _, autocmd in ipairs({ ... }) do

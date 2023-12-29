@@ -1,6 +1,8 @@
 return {
     "nvim-lualine/lualine.nvim",
-    lazy = false,
+    lazy = true,
+    enabled = true,
+    event = "VeryLazy",
     dependencies = {
         "nvim-tree/nvim-web-devicons",
         "frostplexx/lazyBattery.nvim",

@@ -3,6 +3,7 @@ return {
     version = false,
     event = "BufEnter",
     lazy = true,
+    enabled = true,
     config = function()
         -- [[ Mini Indetenscope ]]
         require('mini.indentscope').setup({

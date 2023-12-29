@@ -1,14 +1,29 @@
 -- [[ Vim options ]]
 
-vim.g.shortmess = T
-vim.g.cmdheight = 0
 vim.cmd.colorscheme "catppuccin-macchiato"
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
 vim.opt.autochdir = true
 
+-- Set highlight on search
+vim.o.hlsearch = false
+
+-- Enable mouse mode
+vim.o.mouse = 'a'
+
+-- Enable break indent
+vim.o.breakindent = true
+
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
 vim.api.nvim_set_option("clipboard", "unnamed")
+
+
 vim.opt.cmdheight = 0
 
 vim.opt.tabstop = 4
