@@ -42,6 +42,14 @@ return {
         -- [[ Set up LSP-Zero ]]
         local lsp_zero = require('lsp-zero')
         lsp_zero.preset('recommended')
+        lsp_zero.set_sign_icons({
+            error = ' ',
+            warn = ' ',
+            hint = ' ',
+            info = ' '
+        })
+
+
         lsp_zero.on_attach(function(_, bufnr)
             lsp_zero.default_keymaps({ buffer = bufnr })
             lsp_format_on_save(bufnr)
@@ -79,10 +87,10 @@ return {
         -- sourcekit-lsp
         lspconfig.sourcekit.setup {}
 
-        -- sumneko_lua
+        -- lua_ls
         lspconfig.lua_ls.setup {
-            -- ... other configs
             settings = {
+                -- removes the globals vim warning
                 Lua = {
                     diagnostics = {
                         globals = { 'vim' }
