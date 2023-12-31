@@ -2,23 +2,12 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- vim.keymap.set("n", "<leader>cp", function()
---     -- get copilot status
---     if vim.g.copilot then
---         -- if copilot is on, turn it off
---         vim.g.copilot = false
---         vim.cmd("Copilot disable")
---         vim.cmd("echo 'Copilot disabled'")
---     else
---         -- if copilot is off, turn it on
---         vim.g.copilot = true
---         vim.cmd("Copilot enable")
---         vim.cmd("echo 'Copilot enabled'")
---     end
--- end, { desc = "Toggle Copilot" })
-
 -- remap Ctrl-W to <leader>w
 vim.keymap.set("n", "<leader>w", "<C-W>", { desc = "Windows", noremap = false })
+
+
+-- remap redo to U
+vim.keymap.set("n", "U", "<C-r>", { desc = "Redo", noremap = false })
 
 -- Builds XCode
 vim.keymap.set("n", "<leader>cb", function()
@@ -28,20 +17,22 @@ vim.keymap.set("n", "<leader>cb", function()
     vim.cmd("XcodebuildBuildRun")
 end, { desc = "Builds XCode Project" })
 
+--<leaer>po to exlpore projects folder
 vim.keymap.set("n", "<leader>po", ":Explore ~/Documents/Development/ <cr><cr>",
     { desc = "Open Development Folder", silent = true })
-
--- no neck pain
-vim.keymap.set("n", "<leader>wp", vim.cmd.NoNeckPain, { desc = "Center Code" })
 
 -- Undotree
 vim.keymap.set("n", "<leader>cu", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
 
+-- Toggleterm
 vim.keymap.set("n", "<leader>bT", ":ToggleTerm direction=float <CR>", { desc = "Open terminal" })
 vim.keymap.set("n", "<leader>bt", ":ToggleTerm direction=horizontal <CR>", { desc = "Open horizontal terminal split" })
 
--- Rearrange visually selected lines in normal mode
+-- Ctrl-a to select all
+vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select all" })
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
+-- Rearrange visually selected lines in normal mode
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 
 -- Join lines in normal mode after moving to the end of the line
@@ -71,32 +62,5 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 -- Delete selected text in normal and visual mode without affecting the system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
--- Disable Ex mode when pressing Q in normal mode
-vim.keymap.set("n", "Q", "<nop>")
-
--- Format the current buffer using LSP (Language Server Protocol)
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
-
--- Move to the next quickfix entry and center the screen
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-
--- Move to the previous quickfix entry and center the screen
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-
--- Move to the next location list entry and center the screen
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-
--- Move to the previous location list entry and center the screen
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-
 -- Search and replace in the whole file with confirmation, case-insensitive, and whole-word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Add executable permission to the current file in normal mode
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-
--- Run a custom command to simulate making it rain in normal mode
-vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
-
--- Open the Packer configuration file for editing in normal mode
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>")
