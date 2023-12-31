@@ -1,8 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
-    lazy = true,
+    lazy = false,
     enabled = true,
-    event = "VeryLazy",
     dependencies = {
         "nvim-tree/nvim-web-devicons",
         "frostplexx/lazyBattery.nvim",
@@ -20,9 +19,9 @@ return {
         require("lualine").setup({
             options = {
                 theme = "auto",
-                globalstatus = true,
+                globalstatus = false,
                 section_separators = { left = "", right = "" },
-                disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
+                disabled_filetypes = { statusline = { "message" } },
             },
             sections = {
                 lualine_a = {
@@ -88,7 +87,7 @@ return {
             },
             winbar = {},
             tabline = {},
-            extensions = { "neo-tree", "lazy" },
+            extensions = { "lazy" },
         })
     end
 }
