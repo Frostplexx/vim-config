@@ -1,5 +1,4 @@
 -- [[ Vim options ]]
-
 vim.cmd.colorscheme "catppuccin-macchiato"
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -24,8 +23,13 @@ vim.o.completeopt = 'menuone,noselect'
 vim.api.nvim_set_option("clipboard", "unnamed")
 
 
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 
+-- set column width to 125
+vim.opt.textwidth = 125
+vim.opt.colorcolumn = "125"
+
+-- set tab width to 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
