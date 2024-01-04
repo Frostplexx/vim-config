@@ -44,7 +44,6 @@ local lines = {
 }
 
 ---Window configuration for the intro message floating window
----@type vim.api.keyset.float_config
 local win_config = {
     width = 0,
     height = #lines,
