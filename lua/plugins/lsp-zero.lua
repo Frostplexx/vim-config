@@ -16,13 +16,16 @@ return {
         },
         {
             'L3MON4D3/LuaSnip',
-            lazy = false,
-            dependencies = { "rafamadriz/friendly-snippets", lazy = false } -- Collection of snippets
-        },                                                                  -- Snippet engine
-        { "williamboman/mason.nvim",           lazy = true },               -- Install LSP servers
-        { "williamboman/mason-lspconfig.nvim", lazy = true },               -- connect mason to lspconfig
+            lazy = true,
+            event = "InsertEnter",
+            dependencies = { "rafamadriz/friendly-snippets", lazy = false }      -- Collection of snippets
+        },                                                                       -- Snippet engine
+        { "williamboman/mason.nvim",           lazy = true },                    -- Install LSP servers
+        { "williamboman/mason-lspconfig.nvim", lazy = true },                    -- connect mason to lspconfig
+        { "j-hui/fidget.nvim",                 lazy = true, event = "VeryLazy" } -- LSP UI
     },
     config = function()
+        require("fidget").setup {}
         -- Auto formattting helper function
         local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
         local lsp_format_on_save = function(bufnr)

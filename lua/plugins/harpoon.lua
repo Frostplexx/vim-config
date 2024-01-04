@@ -1,6 +1,7 @@
 return {
     "ThePrimeagen/harpoon",
     lazy = true,
+    enabled = false,
     event = "BufRead",
     branch = "harpoon2",
     config = function()

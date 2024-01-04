@@ -4,6 +4,10 @@ return {
     event = "BufEnter",
     lazy = true,
     enabled = true,
+    dependencies = {
+        "frostplexx/lazyBattery.nvim",
+        "lewis6991/gitsigns.nvim"
+    },
     config = function()
         -- [[ Mini Indetenscope ]]
         require('mini.indentscope').setup({
@@ -157,6 +161,61 @@ return {
                 miniclue.gen_clues.z(),
             },
         })
+
+        require("battery").setup({
+            update_rate_seconds = 300,
+            show_status_when_no_battery = true, -- Don't show any icon or text when no battery found (desktop for example)
+            show_plugged_icon = true,           -- If true show a cable icon alongside the battery icon when plugged in
+            show_unplugged_icon = false,        -- When true show a diconnected cable icon when not plugged in
+            show_percent = true,                -- Whether or not to show the percent charge remaining in digits
+            vertical_icons = false,             -- When true icons are vertical, otherwise shows horizontal battery icon
+        })
+
+        local statusline = function()
+            local mini = require('mini.statusline')
+
+            local mode, mode_hl = mini.section_mode({ trunc_width = 9999 })
+            local git = mini.section_git({ trunc_width = 75 })
+            local diagnostics = mini.section_diagnostics({ trunc_width = 75 })
+            local filename = mini.section_filename({ trunc_width = 140 })
+            local fileinfo = mini.section_fileinfo({ trunc_width = 9999 })
+            local location = mini.section_location({ trunc_width = 9999 })
+            local clock = " " .. os.date("%R")
+            local battery = require("battery").get_status_line()
+
+            return mini.combine_groups({
+                { hl = mode_hl,                 strings = { mode } },
+                { hl = 'MiniStatuslineDevinfo', strings = { git, diagnostics } },
+                "%<", -- truncate point
+                { hl = "MiniStatuslineFilename", strings = { filename } },
+                "%=", -- end left alignment
+                { hl = "MiniStatuslineLocation", strings = { location } },
+                { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+                { hl = mode_hl,                  strings = { battery, clock } },
+            })
+        end
+
+        -- [[ Mini Statusline ]]
+        require('mini.statusline').setup(
+        -- No need to copy this inside `setup()`. Will be used automatically.
+            {
+                -- Content of statusline as functions which return statusline string. See
+                -- `:h statusline` and code of default contents (used instead of `nil`).
+                content = {
+                    -- Content for active window
+                    active = statusline,
+                    -- Content for inactive window(s)
+                    inactive = nil,
+                },
+
+                -- Whether to use icons by default
+                use_icons = true,
+
+                -- Whether to set Vim's settings for statusline (make it always shown with
+                -- 'laststatus' set to 2). To use global statusline in Neovim>=0.7.0, set
+                -- this to `false` and 'laststatus' to 3.
+                set_vim_settings = true,
+            })
     end,
     keys = {
         {
