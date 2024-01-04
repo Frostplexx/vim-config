@@ -7,7 +7,8 @@ return {
         { 'neovim/nvim-lspconfig',             lazy = false }, -- LSP client
         {
             'hrsh7th/nvim-cmp',                                -- Autocompletion
-            lazy = false,
+            lazy = true,
+            event = "InsertEnter",
             dependencies = {
 
                 { 'saadparwaiz1/cmp_luasnip' }, -- Support for LuaSnip
@@ -25,7 +26,13 @@ return {
         { "j-hui/fidget.nvim",                 lazy = true, event = "VeryLazy" } -- LSP UI
     },
     config = function()
-        require("fidget").setup {}
+        require("fidget").setup {
+            notification = {
+                window = {
+                    winblend = 0,
+                },
+            }
+        }
         -- Auto formattting helper function
         local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
         local lsp_format_on_save = function(bufnr)
