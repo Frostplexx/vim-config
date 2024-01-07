@@ -3,7 +3,7 @@ vim.cmd.colorscheme "catppuccin-macchiato"
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.opt.autochdir = true
+vim.opt.foldmethod = "manual"
 
 -- Set highlight on search
 vim.o.hlsearch = false

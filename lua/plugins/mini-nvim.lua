@@ -114,6 +114,10 @@ return {
         -- [[ Mini Surround ]]
         require('mini.surround').setup()
 
+        -- -- [[ Mini Notify ]]
+        -- require('mini.notify').setup()
+        -- vim.notify = require('mini.notify').make_notify()
+
         -- [[ Mini Cursorword ]]
         require('mini.cursorword').setup()
 

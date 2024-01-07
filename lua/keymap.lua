@@ -5,6 +5,9 @@ vim.g.maplocalleader = ' '
 -- remap Ctrl-W to <leader>w
 vim.keymap.set("n", "<leader>w", "<C-W>", { desc = "Windows", noremap = false })
 
+-- exit terminal mode
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
 
 -- remap redo to U
 vim.keymap.set("n", "U", "<C-r>", { desc = "Redo", noremap = false })
@@ -20,9 +23,17 @@ end, { desc = "Builds XCode Project" })
 --<leaer>po to exlpore projects folder
 vim.keymap.set("n", "<leader>po", ":Explore ~/Documents/Development/ <cr><cr>",
     { desc = "Open Development Folder", silent = true })
+-- <leader>ph to cd to the current file's directory
+vim.keymap.set("n", "<leader>ph", ":cd %:p:h<cr>")
 
 -- Undotree
 vim.keymap.set("n", "<leader>cu", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
+
+-- Remap $ and ^ to move to the end and beginning of the line
+vim.keymap.set("n", "H", "^", { noremap = true, desc = "Move to the beginning of the line" })
+vim.keymap.set("n", "L", "$", { noremap = true, desc = "Move to the end of the line" })
+vim.keymap.set("v", "H", "^", { noremap = true, desc = "Move to the beginning of the line" })
+vim.keymap.set("v", "L", "$", { noremap = true, desc = "Move to the end of the line" })
 
 -- Toggleterm
 vim.keymap.set("n", "<leader>bT", ":ToggleTerm direction=float <CR>", { desc = "Open terminal" })

@@ -4,9 +4,9 @@ return {
     lazy = true,
     event = "BufRead",
     dependencies = {
-        { 'neovim/nvim-lspconfig',             lazy = false }, -- LSP client
+        { 'neovim/nvim-lspconfig',             lazy = true, event = "BufRead" }, -- LSP client
         {
-            'hrsh7th/nvim-cmp',                                -- Autocompletion
+            'hrsh7th/nvim-cmp',                                                  -- Autocompletion
             lazy = true,
             event = "InsertEnter",
             dependencies = {
@@ -19,11 +19,11 @@ return {
             'L3MON4D3/LuaSnip',
             lazy = true,
             event = "InsertEnter",
-            dependencies = { "rafamadriz/friendly-snippets", lazy = false }      -- Collection of snippets
-        },                                                                       -- Snippet engine
-        { "williamboman/mason.nvim",           lazy = true },                    -- Install LSP servers
-        { "williamboman/mason-lspconfig.nvim", lazy = true },                    -- connect mason to lspconfig
-        { "j-hui/fidget.nvim",                 lazy = true, event = "VeryLazy" } -- LSP UI
+            dependencies = { "rafamadriz/friendly-snippets", lazy = false }                     -- Collection of snippets
+        },                                                                                      -- Snippet engine
+        { "williamboman/mason.nvim",           lazy = true },                                   -- Install LSP servers
+        { "williamboman/mason-lspconfig.nvim", lazy = true },                                   -- connect mason to lspconfig
+        { "j-hui/fidget.nvim",                 lazy = true, event = "BufRead", enabled = true } -- LSP UI
     },
     config = function()
         require("fidget").setup {
