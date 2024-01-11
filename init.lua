@@ -1,5 +1,7 @@
 -- [[ Init File ]]
-require("keymap")
+vim.loader.enable() -- speed up startup time
+
+require("keymap")   -- load keymaps
 
 -- [[ Lazy.nvim Plugin Manager ]]
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

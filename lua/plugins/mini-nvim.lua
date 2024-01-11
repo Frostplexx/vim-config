@@ -1,12 +1,33 @@
 return {
     'echasnovski/mini.nvim',
     version = false,
-    event = "BufEnter",
     lazy = true,
+    event = "WinEnter",
     enabled = true,
     dependencies = {
-        "frostplexx/lazyBattery.nvim",
-        "lewis6991/gitsigns.nvim"
+        {
+            "frostplexx/lazyBattery.nvim",
+            config = function()
+                require("battery").setup({
+                    update_rate_seconds = 300,
+                    show_status_when_no_battery = true, -- Don't show any icon or text when no battery found (desktop for example)
+                    show_plugged_icon = true,           -- If true show a cable icon alongside the battery icon when plugged in
+                    show_unplugged_icon = false,        -- When true show a diconnected cable icon when not plugged in
+                    show_percent = true,                -- Whether or not to show the percent charge remaining in digits
+                    vertical_icons = false,             -- When true icons are vertical, otherwise shows horizontal battery icon
+                })
+            end
+
+        },
+        {
+            "lewis6991/gitsigns.nvim",
+            lazy = true,
+            event = "BufRead",
+            config = function()
+                require('gitsigns').setup()
+            end
+
+        }
     },
     config = function()
         -- [[ Mini Indetenscope ]]
@@ -166,14 +187,6 @@ return {
             },
         })
 
-        require("battery").setup({
-            update_rate_seconds = 300,
-            show_status_when_no_battery = true, -- Don't show any icon or text when no battery found (desktop for example)
-            show_plugged_icon = true,           -- If true show a cable icon alongside the battery icon when plugged in
-            show_unplugged_icon = false,        -- When true show a diconnected cable icon when not plugged in
-            show_percent = true,                -- Whether or not to show the percent charge remaining in digits
-            vertical_icons = false,             -- When true icons are vertical, otherwise shows horizontal battery icon
-        })
 
         local statusline = function()
             local mini = require('mini.statusline')

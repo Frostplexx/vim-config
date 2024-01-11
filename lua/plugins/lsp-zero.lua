@@ -19,11 +19,11 @@ return {
             'L3MON4D3/LuaSnip',
             lazy = true,
             event = "InsertEnter",
-            dependencies = { "rafamadriz/friendly-snippets", lazy = false }                     -- Collection of snippets
-        },                                                                                      -- Snippet engine
-        { "williamboman/mason.nvim",           lazy = true },                                   -- Install LSP servers
-        { "williamboman/mason-lspconfig.nvim", lazy = true },                                   -- connect mason to lspconfig
-        { "j-hui/fidget.nvim",                 lazy = true, event = "BufRead", enabled = true } -- LSP UI
+            dependencies = { "rafamadriz/friendly-snippets", lazy = true, event = "InsertEnter" } -- Collection of snippets
+        },                                                                                        -- Snippet engine
+        { "williamboman/mason.nvim",           lazy = true },                                     -- Install LSP servers
+        { "williamboman/mason-lspconfig.nvim", lazy = true },                                     -- connect mason to lspconfig
+        { "j-hui/fidget.nvim",                 lazy = true, event = "BufRead", enabled = true }   -- LSP UI
     },
     config = function()
         require("fidget").setup {

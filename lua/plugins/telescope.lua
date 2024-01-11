@@ -1,7 +1,7 @@
 -- plugins/telescope.lua:
 return {
     'nvim-telescope/telescope.nvim',
-    lazy = false,
+    lazy = true,
     tag = '0.1.5',
     event = "VeryLazy",
     dependencies = {
