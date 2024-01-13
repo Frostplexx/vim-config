@@ -1,8 +1,8 @@
 return {
     "anuvyklack/windows.nvim",
-    enabled = false,
-    lazy = false,
-    event = "BufWinEnter",
+    enabled = true,
+    lazy = true,
+    event = "BufRead",
     config = function()
         require('windows').setup()
     end,
