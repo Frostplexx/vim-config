@@ -4,31 +4,33 @@ return {
     name = "catppuccin",
     priority = 1000,
     config = function()
+        local catpuccin_palettte = require("catppuccin.palettes").get_palette("macchiato")
         if vim.g.neovide then
-            local macchiato_palette = require("catppuccin.palettes").get_palette("macchiato")
             vim.cmd([[
   hi Terminal guibg=NONE ctermbg=NONE cterm=NONE
   hi TermCursor guibg=NONE ctermbg=NONE cterm=NONE ctermfg=1 guifg=macchiato_palette.text
   hi TermCursorNC guibg=NONE ctermbg=NONE cterm=NONE ctermfg=1 guifg=macchiato_palette.text
   ]])
-
-            vim.g.terminal_color_0 = macchiato_palette.base
-            vim.g.terminal_color_1 = macchiato_palette.red
-            vim.g.terminal_color_2 = macchiato_palette.green
-            vim.g.terminal_color_3 = macchiato_palette.yellow
-            vim.g.terminal_color_4 = macchiato_palette.blue
-            vim.g.terminal_color_5 = macchiato_palette.pink
-            vim.g.terminal_color_6 = macchiato_palette.teal
-            vim.g.terminal_color_7 = macchiato_palette.subtext1
-            vim.g.terminal_color_8 = macchiato_palette.yellow  -- idk
-            vim.g.terminal_color_9 = macchiato_palette.yellow  -- idk
-            vim.g.terminal_color_10 = macchiato_palette.yellow -- idk
-            vim.g.terminal_color_11 = macchiato_palette.yellow -- idk
-            vim.g.terminal_color_12 = macchiato_palette.yellow -- idk
-            vim.g.terminal_color_13 = macchiato_palette.pink
-            vim.g.terminal_color_14 = macchiato_palette.pink
-            vim.g.terminal_color_15 = macchiato_palette.red
         end
+
+
+        -- Set cursor colors to match the theme
+        vim.cmd [[
+    highlight Cursor guifg=#1b1818 guibg=#cad3f5
+    highlight nCursor guifg=#cad3f5 guibg=#cad3f5
+    highlight iCursor guifg=#a6da95 guibg=#a6da95
+    highlight vCursor guifg=#c6a0f6 guibg=#c6a0f6
+    highlight rCursor guifg=#1b1818 guibg=#c6a0f6
+    highlight cCursor guifg=#f5a97f guibg=#f5a97f
+    " set guicursor=n:block-Cursor
+    " set guicursor+=i:block-iCursor
+    set guicursor+=n-v-c:noblink
+    set guicursor+=n-c:noblink
+    set guicursor+=v:noblink-vCursor
+    set guicursor+=r:noblink-rCursor
+    set guicursor+=c:noblink-cCursor
+    set guicursor+=i:blinkwait0
+  ]]
 
         require("catppuccin").setup({
             flavour = "macchiato",          -- latte, frappe, macchiato, mocha

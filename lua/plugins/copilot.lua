@@ -3,6 +3,12 @@ return {
     cmd = "Copilot",
     lazy = true,
     event = "InsertEnter",
+    dependencies = {
+        {
+            'gptlang/CopilotChat.nvim',
+            event = "BufRead"
+        }
+    },
     config = function()
         require('copilot').setup({
             panel = {
