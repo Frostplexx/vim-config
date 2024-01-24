@@ -40,9 +40,9 @@ return {
             enable = true,
             keymaps = {
                 init_selection = "<C-space>",
-                node_incremental = "<C-space>",
                 scope_incremental = false,
-                node_decremental = "<bs>",
+                node_incremental = "v",
+                node_decremental = "V",
             },
         },
         textobjects = {

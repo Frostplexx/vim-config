@@ -29,6 +29,11 @@ vim.keymap.set("n", "<leader>ph", ":cd %:p:h<cr>")
 -- Undotree
 vim.keymap.set("n", "<leader>cu", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
 
+
+-- Lazygit
+vim.keymap.set("n", "<leader>gg", ":terminal lazygit <cr> i", { desc = "Lazygit" })
+
+
 vim.keymap.set("n", "<leader>gb", ":!git blame -- % <cr>", { desc = "Git blame" })
 
 -- Remap $ and ^ to move to the end and beginning of the line
