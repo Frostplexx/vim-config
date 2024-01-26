@@ -11,9 +11,15 @@ return {
             event = "InsertEnter",
             dependencies = {
 
-                { 'saadparwaiz1/cmp_luasnip' }, -- Support for LuaSnip
-                { 'hrsh7th/cmp-nvim-lsp' },     --  Support for LSP
-            }
+                {
+                    'saadparwaiz1/cmp_luasnip', -- Support for LuaSnip
+                    event = "InsertEnter"
+                },
+                {
+                    'hrsh7th/cmp-nvim-lsp', --  Support for LSP
+                    event = "InsertEnter"
+                },
+            },
         },
         {
             'L3MON4D3/LuaSnip',
