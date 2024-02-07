@@ -7,6 +7,7 @@ return {
     dependencies = {
         {
             "frostplexx/lazyBattery.nvim",
+            enabled = false,
             config = function()
                 require("battery").setup({
                     update_rate_seconds = 300,
@@ -197,18 +198,18 @@ return {
             local filename = mini.section_filename({ trunc_width = 140 })
             local fileinfo = mini.section_fileinfo({ trunc_width = 9999 })
             local location = mini.section_location({ trunc_width = 9999 })
-            local clock = " " .. os.date("%R")
-            local battery = require("battery").get_status_line()
+            -- local clock = " " .. os.date("%R")
+            -- local battery = require("battery").get_status_line()
 
             return mini.combine_groups({
                 { hl = mode_hl,                 strings = { mode } },
                 { hl = 'MiniStatuslineDevinfo', strings = { git, diagnostics } },
                 "%<", -- truncate point
-                { hl = "MiniStatuslineFilename", strings = { filename } },
+                { hl = "MiniStatuslineLocation", strings = { filename } },
                 "%=", -- end left alignment
                 { hl = "MiniStatuslineLocation", strings = { location } },
                 { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
-                { hl = mode_hl,                  strings = { battery, clock } },
+                -- { hl = mode_hl,                  strings = { battery, clock } },
             })
         end
 

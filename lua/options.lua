@@ -1,5 +1,15 @@
 -- [[ Vim options ]]
 vim.cmd.colorscheme "catppuccin-macchiato"
+
+-- Make current line number brighter than the rest
+vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#494d64", bold = false })
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#b4befe", bold = true })
+vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#494d64", bold = false })
+
+
+-- Fix status line blinking
+vim.schedule(function() vim.cmd('redraw') end)
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -22,8 +32,8 @@ vim.o.smartcase = true
 vim.o.completeopt = 'menuone,noselect'
 vim.api.nvim_set_option("clipboard", "unnamed")
 
-
-vim.opt.cmdheight = 1
+vim.opt.smartindent = true
+vim.opt.cmdheight = 0
 
 -- set column width to 125
 vim.opt.textwidth = 125

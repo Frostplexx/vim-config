@@ -13,7 +13,6 @@ return {
   ]])
         end
 
-
         -- Set cursor colors to match the theme
         vim.cmd [[
     highlight Cursor guifg=#1b1818 guibg=#cad3f5
@@ -33,9 +32,9 @@ return {
   ]]
 
         require("catppuccin").setup({
-            flavour = "macchiato",          -- latte, frappe, macchiato, mocha
-            transparent_background = false, -- disables setting the background color.
-            term_colors = true,             -- sets terminal colors (e.g. `g:terminal_color_0`)
+            flavour = "macchiato",         -- latte, frappe, macchiato, mocha
+            transparent_background = true, -- disables setting the background color.
+            term_colors = true,            -- sets terminal colors (e.g. `g:terminal_color_0`)
             integrations = {
                 cmp = true,
                 gitsigns = true,
