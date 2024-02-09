@@ -42,15 +42,11 @@ vim.keymap.set("n", "L", "$", { noremap = true, desc = "Move to the end of the l
 vim.keymap.set("v", "H", "^", { noremap = true, desc = "Move to the beginning of the line" })
 vim.keymap.set("v", "L", "$", { noremap = true, desc = "Move to the end of the line" })
 
--- Toggleterm
-vim.keymap.set("n", "<leader>bT", ":ToggleTerm direction=float <CR>", { desc = "Open terminal" })
-vim.keymap.set("n", "<leader>bt", ":ToggleTerm direction=horizontal <CR>", { desc = "Open horizontal terminal split" })
-
 -- Ctrl-a to select all
 vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select all" })
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 -- Rearrange visually selected lines in normal mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 
 -- Join lines in normal mode after moving to the end of the line

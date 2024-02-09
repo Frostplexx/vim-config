@@ -213,6 +213,17 @@ return {
             })
         end
 
+        local inactive = function()
+            local mini = require('mini.statusline')
+            local filename = mini.section_filename({ trunc_width = 140 })
+            local fileinfo = mini.section_fileinfo({ trunc_width = 9999 })
+            return mini.combine_groups({
+                { hl = "MiniStatuslineLocation", strings = { filename } },
+                "%=", -- end left alignment
+                { hl = "MiniStatuslineLocation", strings = { fileinfo } },
+            })
+        end
+
         -- [[ Mini Statusline ]]
         require('mini.statusline').setup(
         -- No need to copy this inside `setup()`. Will be used automatically.
@@ -223,7 +234,7 @@ return {
                     -- Content for active window
                     active = statusline,
                     -- Content for inactive window(s)
-                    inactive = nil,
+                    inactive = inactive,
                 },
 
                 -- Whether to use icons by default
