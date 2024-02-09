@@ -2,7 +2,7 @@ return {
     'echasnovski/mini.nvim',
     version = false,
     lazy = true,
-    event = "WinEnter",
+    event = "BufReadPost",
     enabled = true,
     dependencies = {
         {
@@ -198,6 +198,7 @@ return {
             local filename = mini.section_filename({ trunc_width = 140 })
             local fileinfo = mini.section_fileinfo({ trunc_width = 9999 })
             local location = mini.section_location({ trunc_width = 9999 })
+            local search = mini.section_searchcount({ trunc_width = 0 })
             -- local clock = " " .. os.date("%R")
             -- local battery = require("battery").get_status_line()
 
@@ -207,8 +208,8 @@ return {
                 "%<", -- truncate point
                 { hl = "MiniStatuslineLocation", strings = { filename } },
                 "%=", -- end left alignment
-                { hl = "MiniStatuslineLocation", strings = { location } },
-                { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+                { hl = "MiniStatuslineLocation", strings = { search, location } },
+                { hl = mode_hl,                  strings = { fileinfo } },
                 -- { hl = mode_hl,                  strings = { battery, clock } },
             })
         end

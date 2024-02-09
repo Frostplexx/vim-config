@@ -2,9 +2,9 @@
 vim.cmd.colorscheme "catppuccin-macchiato"
 
 -- Make current line number brighter than the rest
-vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#494d64", bold = false })
+vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#8087a2", bold = false })
 vim.api.nvim_set_hl(0, "LineNr", { fg = "#b4befe", bold = true })
-vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#494d64", bold = false })
+vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#8087a2", bold = false })
 
 
 -- Fix status line blinking

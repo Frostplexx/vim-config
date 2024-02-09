@@ -39,7 +39,7 @@ return {
                 cmp = true,
                 gitsigns = true,
                 fidget = true,
-                -- harpoon = true,
+                harpoon = true,
                 lsp_trouble = true,
                 treesitter = true,
                 mason = true,
