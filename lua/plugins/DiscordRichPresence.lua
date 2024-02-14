@@ -3,6 +3,7 @@ return {
     {
         "andweeb/presence.nvim",
         -- cmd = "SymbolsOutline",
+        lazy = true,
         event = "VeryLazy",
         -- keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
         opts = {

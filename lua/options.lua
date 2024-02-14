@@ -28,12 +28,15 @@ vim.o.breakindent = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+-- remove the INSERT text when in insert mode
+vim.opt.showmode = false
+
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 vim.api.nvim_set_option("clipboard", "unnamed")
 
 vim.opt.smartindent = true
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 
 -- set column width to 125
 vim.opt.textwidth = 125

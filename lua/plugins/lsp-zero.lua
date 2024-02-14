@@ -13,10 +13,12 @@ return {
 
                 {
                     'saadparwaiz1/cmp_luasnip', -- Support for LuaSnip
+                    lazy = true,
                     event = "InsertEnter"
                 },
                 {
                     'hrsh7th/cmp-nvim-lsp', --  Support for LSP
+                    lazy = true,
                     event = "InsertEnter"
                 },
             },
@@ -114,6 +116,8 @@ return {
 
         -- [[ Set up LSP ]]
         local lspconfig = require('lspconfig')
+        -- Bordered window
+        require("lspconfig.ui.windows").default_options.border = "rounded"
 
         -- sourcekit-lsp
         lspconfig.sourcekit.setup {}
@@ -136,6 +140,11 @@ return {
         local cmp_action = require('lsp-zero').cmp_action()
 
         cmp.setup({
+            window = {
+                -- This adds a border round autocompletion cmp
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
+            },
             sources = {
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' },
