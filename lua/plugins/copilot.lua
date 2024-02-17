@@ -1,12 +1,13 @@
 return {
     "zbirenbaum/copilot.lua",
+    enabled = true,
     cmd = "Copilot",
     lazy = true,
     event = "InsertEnter",
     dependencies = {
         {
             'gptlang/CopilotChat.nvim',
-            event = "BufRead"
+            event = "InsertEnter"
         }
     },
     config = function()

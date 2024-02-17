@@ -44,15 +44,17 @@ return {
                 })
             end,
             lazy = true
-        },                                                                                      -- Install LSP servers
-        { "williamboman/mason-lspconfig.nvim", lazy = true },                                   -- connect mason to lspconfig
-        { "j-hui/fidget.nvim",                 lazy = true, event = "BufRead", enabled = true } -- LSP UI
+        },                                                                                       -- Install LSP servers
+        { "williamboman/mason-lspconfig.nvim", lazy = true },                                    -- connect mason to lspconfig
+        { "j-hui/fidget.nvim",                 lazy = true, event = "BufRead", enabled = true }, -- LSP UI
     },
+
+
     config = function()
         require("fidget").setup {
             notification = {
                 window = {
-                    winblend = 0,
+                    winblend = 0, -- Background opacity
                 },
             }
         }
@@ -148,14 +150,16 @@ return {
             sources = {
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' },
-                { name = 'path' }
+                { name = 'path' },
             },
             mapping = cmp.mapping.preset.insert({
                 -- `Enter` key to confirm completion
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
-                -- Ctrl+Space to trigger completion menu
-                ['<C-Space>'] = cmp.mapping.complete(),
+
+                -- Super Tab
+                ['<Tab>'] = cmp_action.luasnip_supertab(),
+                ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
 
                 -- Navigate between snippet placeholder
                 ['<C-f>'] = cmp_action.luasnip_jump_forward(),
