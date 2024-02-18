@@ -19,9 +19,10 @@ return {
             remap = true,
             silent = true
         },
-        { "<leader>fg", ":Telescope live_grep<cr>",           desc = "Live Grep",      silent = true },
-        { "<leader>fh", ":Telescope help_tags",               desc = "Help Tags",      silent = true },
-        { "<leader>fc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+        { "<leader>fg", ":Telescope live_grep<cr>",           desc = "Live Grep",       silent = true },
+        { "<leader>fh", ":Telescope help_tags<cr>",           desc = "Help Tags",       silent = true },
+        { "<leader>ch", "<cmd>Telescope command_history<cr>", desc = "Command History", silent = true },
+        { "<leader>km", ":Telescope keymaps<cr>",             desc = "Keymap",          silent = true },
         { "<Tab>",
             function()
                 local builtin = require("telescope.builtin")
