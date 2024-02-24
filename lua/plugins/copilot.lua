@@ -3,7 +3,7 @@ return {
     enabled = true,
     cmd = "Copilot",
     lazy = true,
-    event = "BufRead",
+    event = "VeryLazy",
     -- dependencies = {
     --     {
     --         'gptlang/CopilotChat.nvim',
