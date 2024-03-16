@@ -2,6 +2,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.keymap.set("n", "<leader>q", ":wqa<cr>", { desc = "Quit", silent = true })
+vim.keymap.set("n", "<leader>Q", ":qa!<cr>", { desc = "Quit without saving", silent = true })
 -- remap Ctrl-W to <leader>w
 vim.keymap.set("n", "<leader>w", "<C-W>", { desc = "Windows", noremap = false })
 
