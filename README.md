@@ -30,6 +30,7 @@ from [this](https://wojciechkulik.pl/ios/how-to-develop-ios-and-macos-apps-in-ot
 - JetbrainsMono Nerd Font (or any other NerdFont)
 - lazygit
 - ripgrep
+- glow
 - fd (find files)
 
 ### Swift Specific
