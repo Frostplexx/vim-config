@@ -20,7 +20,22 @@ au('YankHighlight', {
 
 vim.api.nvim_create_autocmd('BufReadPost', {
     desc = 'Open file at the last position it was edited earlier',
-    group = misc_augroup,
+    group = "misc_group",
     pattern = '*',
     command = 'silent! normal! g`"zv'
+})
+
+
+-- render markdown in a terminal buffer
+vim.api.nvim_create_autocmd('FileType', {
+    group = vim.api.nvim_create_augroup('markdown_glow', { clear = true }),
+    pattern = { 'markdown' },
+    callback = function()
+        vim.keymap.set(
+            'n',
+            '<leader>oo',
+            "<cmd>execute 'terminal glow ' . expand('%') <bar> execute 'setlocal nomodifiable'<cr>",
+            { buffer = true, desc = 'Open with Glow' }
+        )
+    end,
 })
