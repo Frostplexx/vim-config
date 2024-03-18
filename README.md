@@ -44,7 +44,6 @@ from [this](https://wojciechkulik.pl/ios/how-to-develop-ios-and-macos-apps-in-ot
 
 ## Installation
 
-
 ### Backup your old config (Optional)
 
 ```bash

@@ -35,6 +35,7 @@ return {
             "vim",
             "vimdoc",
             "yaml",
+            "comment"
         },
         incremental_selection = {
             enable = true,
